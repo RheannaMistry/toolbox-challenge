@@ -114,6 +114,19 @@ function compareTiles(clickedImg) {
                 if (restartGame()) {
                     setUpGame();
                     startTimer();
+                    $('#game-board img').click(function() {
+                        var clickedImg = $(this);
+                        var tile = clickedImg.data('tile');
+                        if (tile.flipped || processing) {
+                            return;
+                        } else if (!previousImg) {
+                            flipTile(tile, clickedImg);
+                            previousImg = clickedImg;
+                        } else {
+                            flipTile(tile, clickedImg);
+                            compareTiles(clickedImg);
+                        }
+                    });
                 }
             }
         }, 250);
@@ -146,6 +159,3 @@ function flipTile(tile, img) {
         img.fadeIn(100);
     });
 }
-
-
-

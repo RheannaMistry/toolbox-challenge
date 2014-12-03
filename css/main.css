@@ -1,12 +1,17 @@
 #game-board img {
-    width: 15%;
-    height: 15%;
+    width: 9.5%;
+    height: 9.5%;
     padding: 5px;
     box-sizing: border-box;
+    opacity: 0.6;
+}
+
+#game-board img:hover {
+    opacity: 1.0;
 }
 
 #game-board {
-    margin-left: 350px;
+    margin-left: 480px;
     display: block;
     float: left;
 }
